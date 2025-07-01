@@ -1,0 +1,30 @@
+Executar e documentar de monitoramento de VMs no Azure:
+1 - Configurando o monitoramento básico
+Siga estas etapas para ativar monitoramento com Azure Monitor:
+•	Vá ao seu resource group > selecione a VM desejada > em Monitoring, habilite:
+o	Azure Monitor (diagnostics + métricas)
+o	Log Analytics workspace (para coletar logs centralizados)
+Instruções oficiais estão no Microsoft Learn: consulte o módulo "Monitorar recursos com Azure Monitor" para anotar comandos e capturas de tela.
+
+2 - Definindo alertas para eventos críticos
+Você vai criar alertas proativos, por exemplo, para detecção de exclusão de VM:
+1.	No Azure Portal, vá em Monitor > Alerts > + New alert rule.
+2.	Em Resource, selecione sua VM ou o grupo de recursos.
+3.	Em Condition, escolha uma condição baseada em activity log, como "Delete Virtual Machine".
+4.	Em Action Group, defina notificações por e-mail ou webhook/Teams.
+5.	Em Details, dê um nome (ex. VM-Delete-Alert) e defina a severidade (por exemplo: Sev 2).
+
+3 - Expandindo o monitoramento (opcional, recomendado)
+•	Configure alertas adicionais, por exemplo:
+o	Uso elevado de CPU (> 80% por X minutos)
+o	Disk I/O alto
+o	Falhas de inicialização da VM
+•	Ative Azure Monitor Insights para VMs, para obter dashboards gráficos, métricas e logs em tempo real.
+•	Explore a criação de Dashboards customizados no Azure Portal para monitorar múltiplas VMs em um só lugar.
+
+4 - Boas práticas de monitoramento
+•	Utilize naming conventions (ex.: rg-monit-01, vm-monit-linux).
+•	Formalize IP-restriction/RBAC para garantir que somente equipes autorizadas alterem monitoramento e alertas.
+•	Aplique tags (env=dev|prod, owner=ti-timeX) para facilitar filtragem e relatórios.
+•	Revise periodicamente alertas e custos associados ao Log Analytics.
+
